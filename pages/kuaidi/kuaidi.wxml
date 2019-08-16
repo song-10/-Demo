@@ -1,0 +1,28 @@
+<Title class='title'></Title>
+<view class='search'>
+  <input value="" placeholder="输入你的快递单号" type="number" class="kd_number" bindinput="bindKeyInput" confirm-type="search"></input>
+  <text class='kd_b' bindtap="detialSearch" data-number="{{kd_number}}" data-comp="{{kc}}">查询</text>
+  <image class='kd_i'bindtap="detialSearch" data-number="{{kd_number}}" data-comp="{{kc}}"src="/image/search.jpg"></image>
+</view>
+
+<view class='list'>
+  <view class='list-msg' bindtap='bindShowMsg'>
+    <text style='padding-left:20rpx;'>{{kc_name}}</text>
+  </view>
+</view>
+<text space="emsp" hidden="{{select}}"> 快件状态：{{kc_status}}</text>
+
+<view class='detial'>
+    <loading hidden="{{hidden}}" bindchange="loadingChange">查询中...</loading>
+    <template name="message_re">
+      <view class='tl'>
+        <text class='time'>{{item.time}}\n</text>
+        <text class='status'>{{item.desc}}\n</text>
+      </view>
+    </template>
+  <view class="message_kd">
+      <block wx:for="{{message}}" wx:key="{{index}}">
+        <template is="message_re" data="{{item}}"/>
+      </block>
+  </view>
+</view>

@@ -1,0 +1,8 @@
+<view class="my-title">
+  <view class="logo">
+    <image class="logo-image" src="../../image/logo.png"></image>
+  </view>
+  <view class="name">
+    弱类型
+  </view>
+</view>

@@ -1,0 +1,9 @@
+<navigator class="weather" url="../weather/weather">
+  <text class="w_text">天气预报</text>
+</navigator>
+<navigator class="kauidi" url="../kuaidi/kuaidi">
+  <text class="k_text">物流查询</text>
+</navigator>
+<navigator class="garbage" url="../garbage/garbage">
+  <text class="g_text">垃圾分类查询</text>
+</navigator>

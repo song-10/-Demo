@@ -1,0 +1,36 @@
+<view class="header">
+  <view class="head"><open-data  type="userAvatarUrl"></open-data></view>
+</view>
+<view class="nick"><open-data  type="userNickName"></open-data></view>
+<button class="button" hidden="{{hidden}}" wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">登录授权</button>
+<view wx:else>请升级微信版本</view>
+<view class="main" hidden="{{!hidden}}">
+  <!-- 分割线 -->
+  <view class="line"></view>
+  <text class="title">设置</text>
+  <view class="line"></view>
+  <view class="choice" bindtap="getAbout" data-hidden="{{h1}}" hover-class="navigator-hover">关于【WT{{"<>"}}Lite】</view>
+  <!-- 关于项的内容 -->
+  <view class="a_content" hidden="{{h1}}">
+    <text class="a_state">如果该程序侵犯了您的任何权益，请联系作者，我将在第一时间解决\n</text>
+    <text class="a_detail">1、该程序采用的api以及图标均来源于网络;\n</text>
+    <text class="a_detail">2、该程序只是一个测试版本，作为暑期学习的成果;\n</text>
+    <text class="a_detail">3、如遇到任何问题，欢迎反馈到邮箱;\n</text>
+    <text class="a_detail">4、本程序只是测试版本，后续会完善发布正式版本;\n</text>
+    <text class="a_detail">5、感谢MZCretin(gihub)、阿凡达数据提供的api;\n</text>
+    <text class="a_detail">6、联系邮箱：1316361702@qq.com\n</text>
+    <text class="a_editor">Created by Nop@2019</text>
+  </view>
+  <view class="line"></view>
+  <view class="choice" bindtap="getLogs" data-hidden="{{h2}}" hover-class="navigator-hover">更新日志</view>
+  <view class="l_content" hidden="{{h2}}">
+    <text space="ensp">2019年8月测试版本: 1.0.0 build-1908\n</text>
+  </view>
+  <view class="line"></view>
+  <view class="choice" bindtap="Show" data-hidden="{{h3}}" hover-class="navigator-hover">反馈</view>
+  <view class="f_content" hidden="{{h3}}">
+    <text space="ensp">预留板块</text>
+  </view>
+  <view class="line"></view>
+  <view  class="logo"><Title></Title></view>
+</view>

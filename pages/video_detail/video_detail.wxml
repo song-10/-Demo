@@ -1,0 +1,31 @@
+<view class="main">
+  <Title></Title>
+  <!-- 视频详情 -->
+  <view class='video-info'>
+    <video src="{{video_src}}" controls='true' auto-pause-if-navigate="true" auto-pause-if-open-native='true'></video>
+    <view class='video-title'>
+      <text>{{title}}\n</text>
+      <text class='source'>作者：{{source}}</text>
+    </view>
+  </view>
+  <!-- 更换推荐视频 -->
+  <view class='change' bindtap='changeList' data-page="{{page}}">
+    <text space="ensp">换一批 </text>
+    <image src="../../image/refresh.png" mode="widthFix"></image>
+  </view>
+  <!-- 推荐视频 -->
+  <view class="other-list">
+      <navigator class="item-other" url="../video_detail/video_detail?title={{item.title}}&src={{item.videoList}}&source={{item.source}}" wx:for="{{otherList}}" wx:key="{{index}}">
+        <view class="other-img-wrap">
+          <image src="{{item.imgList}}" ></image>
+        </view>
+        <view class="other-info">
+          <view class="other-title">{{item.title}}</view>
+          <view class="other-detail">
+            <text class="date">上传日期：{{item.postTime}}</text>
+          </view>
+        </view>
+      </navigator>
+    </view>
+</view>
+<loading hidden="{{hidden}}" bindchange="loadingChange">请稍后...</loading>

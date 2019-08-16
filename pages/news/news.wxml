@@ -1,0 +1,64 @@
+<view class='main'>
+<Title></Title>
+  <!-- 首页导航 -->
+  <view class="nav-wrap">
+    <!-- 左右滚动 -->
+    <scroll-view class="nav" scroll-x>
+     <view bindtap="activeNav" data-index="{{index}}" class="nav-item {{index===currentIndexNav?'active':''}}"
+        wx:for="{{navList}}" wx:key="{{index}}" data-page_video="{{page_video}}" data-page_joke="{{page_joke}}" data-day="{{day}}" data-month="{{month}}" data-page_history="{{page_history}}" data-total="{{total}}">
+        {{item}}
+      </view>
+    </scroll-view>
+  </view>
+  <!-- 我的音乐 -->
+  <!-- <view class="sugest-wrap" wx:if="{{currentIndexNav==0}}">
+  </view> -->
+  <!-- 历史上的今天 -->
+  <view class="history-wrap" wx:if="{{currentIndexNav==0}}">
+    <template name="history">
+      <view class="history-today">
+        <text class="history-date">{{item.year}}年{{item.month}}月{{item.day}}日</text>
+        <text class="history-content">{{item.title}}</text>
+      </view>
+    </template>
+    <view class='change' bindtap='changeHistoy' data-day="{{day}}" data-month="{{month}}" data-page="{{page_history}}" data-total="{{total}}">
+          <text space="ensp">换一批 </text>
+          <image src="../../image/refresh.png" mode="widthFix"></image>
+    </view>
+    <view class="history">
+      <block wx:for="{{history}}" wx:key="{{index}}">
+        <template is="history" data="{{item}}"/>
+        <view class="split"></view>
+      </block>
+    </view>
+  </view>
+  <!-- 视频推荐 -->
+  <view class="video-wrap" wx:if="{{currentIndexNav==1}}">
+    <navigator url="../video_detail/video_detail?title={{item.title}}&src={{item.videoList}}&source={{item.source}}" class="video-item" wx:for="{{video_list}}" wx:key="{{index}}">
+      <view class="video-img">
+        <image src="{{item.imgList}}"  class="video-img-image"></image>
+      </view>
+        <view class="video-title">{{item.title}}</view>
+    </navigator>
+  </view>
+  <!-- 笑话段子 -->
+  <view class='joke-wrap' wx:if="{{currentIndexNav==2}}">
+      <template name="joke">
+        <view class="joke-content">
+          {{item.content}}
+        </view>
+      </template>
+      <view class='change' bindtap='changeListJoke' data-page="{{page_joke}}">
+          <text space="ensp">换一批 </text>
+          <image src="../../image/refresh.png" mode="widthFix"></image>
+      </view>
+      <view class="joke">
+          <block wx:for="{{joke}}" wx:key="{{index}}">
+            <template is="joke" data="{{item}}"/>
+            <view class="split"></view>
+          </block>
+      </view>
+  </view>
+
+</view>
+<loading hidden="{{hidden}}" bindchange="loadingChange">请稍后...</loading>

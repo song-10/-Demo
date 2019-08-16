@@ -1,0 +1,31 @@
+/* components/MyTitle/MyTitle.wxss */
+
+.my-title {
+  display: flex;
+  align-items: center;
+  padding: 10rpx;
+  background-color: #fff;
+}
+.logo{
+  display: flex;
+  flex: 1;
+  justify-content: left;
+  align-items: left;
+}
+.logo-image{
+  width: 400rpx;
+  height: 80rpx;
+  margin-top:30rpx;
+}
+.name {
+  display: flex;
+  flex: 3;
+  font-size: 30rpx;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(79, 126, 228);
+  color: #fff;
+  border-radius: 10rpx;
+  padding: 10rpx;
+  margin-top: 40rpx;
+}

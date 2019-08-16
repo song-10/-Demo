@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "Title": "../../components/Title/Title"
+  },
+  "navigationBarTitleText": "快递查询"
+}

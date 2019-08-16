@@ -1,0 +1,62 @@
+<view class="main">
+  <view class="content" hidden="{{!detail}}">
+  <view  bindtap="showDetail" data-status="{{detail}}" hover-class="navigator-hover">
+      <view class="today">
+          <view class="info">
+              <view class="temp"> {{today.tmp}}℃ </view>
+              <view class="weather">{{today.cond_txt}}   {{today.wind_dir}}  {{today.wind_sc}}级</view>
+              <view class="weather">体感温度：{{today.fl}}℃  风速：{{today.wind_spd}}km/h</view>
+              <view >{{todayInfo[0].txt}}</view>
+              <view class="city"> {{city}}</view>
+              <text space="emsp">宜：{{perpetual_clr[0].suit}}\n</text>
+              <text space="emsp">忌：{{perpetual_clr[0].avoid}}</text>
+          </view>
+      </view>
+  </view>
+  </view>
+  <!-- 天气详情 -->
+  <view hidden="{{detail}}" bindtap="showDetail" data-status="{{detail}}" hover-class="navigator-hover">
+      <view class="today-d">
+          <view class="info-d">
+              <text class='title-d' space="emsp">{{perpetual_clr[0].yearTips}}年{{perpetual_clr[0].lunarCalendar}} {{perpetual_clr[0].typeDes}}({{perpetual_clr[0].solarTerms}})\n\n</text>
+              <text class='title-d'>空气污染扩散条件指数：\n</text>
+              <text class='content-detail'>{{todayInfo[7].txt}}\n</text>
+              <text class='title-d'>穿衣指数：\n</text>
+              <text class='content-detail'>{{todayInfo[1].txt}}\n</text>
+              <text class='title-d'>感冒指数：\n</text>
+              <text class='content-detail'>{{todayInfo[2].txt}}\n</text>
+              <text class='title-d'>运动指数：\n</text>
+              <text class='content-detail'>{{todayInfo[3].txt}}\n</text>
+              <text class='title-d'>旅游指数：\n</text>
+              <text class='content-detail'>{{todayInfo[4].txt}}\n</text>
+              <text class='title-d'>紫外线指数：\n</text>
+              <text class='content-detail'>{{todayInfo[5].txt}}\n</text>
+              <text class='title-d'>洗车指数：\n </text>
+              <text class='content-detail'>{{todayInfo[6].txt}}\n</text>
+          </view>
+      </view>
+  </view>
+  <template name="future-item">
+    <view class='tl' data-date="{{item.date}}" wx:if="{{index==1||index==2}}">
+      <view>
+        <text>{{item.date}}\n</text>
+        <text wx:if="{{index==1}}">{{perpetual_clr[1].yearTips}}年{{perpetual_clr[1].lunarCalendar}}\n</text>
+        <text wx:if="{{index==2}}">{{perpetual_clr[2].yearTips}}年{{perpetual_clr[2].lunarCalendar}}\n</text>
+        <text wx:if="{{index==1}}">{{perpetual_clr[1].typeDes}}({{perpetual_clr[1].solarTerms}})\n</text>
+        <text wx:if="{{index==2}}">{{perpetual_clr[2].typeDes}}({{perpetual_clr[2].solarTerms}})</text>
+      </view>
+      <view>{{item.wind_dir}}</view>
+      <view>{{item.wind_sc}}级 {{item.wind_spd}}km/h</view>
+      <view> 白天：{{item.cond_txt_d}}</view>
+      <view> 夜间：{{item.cond_txt_n}}</view>
+      <view> 气温：{{item.tmp_min}}-{{item.tmp_max}}℃ </view>
+      <view>降水概率：{{item.pop}}</view>
+      <view> 能见度：{{item.vis}}km</view>
+    </view>
+  </template>
+  <view class="future">
+      <block wx:for="{{future}}" wx:key="{{index}}">
+        <template is="future-item" data="{{item,index,perpetual_clr}}"/>
+      </block>
+  </view>
+</view>

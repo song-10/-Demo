@@ -1,0 +1,65 @@
+/* pages/video_detail/video_detail.wxss */
+.main {
+  padding: 10rpx;
+  color: #666;
+}
+.video-info {
+  margin-top: 10rpx;
+}
+.video-info video {
+  width: 100%;
+}
+.video-title {
+  justify-content: space-between;
+  font-size: 36rpx;
+  padding-bottom: 20rpx;
+}
+.source{
+  font-size: 25rpx;
+  color: #666666;
+}
+.other-list {
+  margin-top: 10rpx;
+}
+.item-other {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rpx;
+}
+.other-img-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+}
+.other-img-wrap image {
+  width: 94px;
+  height: 120px;
+  border-radius: 15rpx;
+}
+.other-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 60%;
+}
+.other-title {
+  font-size: 40rpx;
+  color: #666666;
+}
+.other-detail {
+  font-size: 25rpx;
+  color: #666;
+}
+.change{
+  padding-top: 10rpx;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+.change text{
+  font-family: 楷体;
+}
+.change image{
+  width: 5%;
+}
