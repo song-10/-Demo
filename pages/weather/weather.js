@@ -57,9 +57,9 @@ Page({
   getDate(date1,date2,date3){
     var that=this;
     wx.request({
-      url: 'https://www.mxnzp.com/api/holiday/multi/'+date1+','+date2+','+date3,
+      url: 'https://www.mxnzp.com/api/holiday/multi/' + date1 + ',' + date2 + ',' + date3 +'?app_id=jyqldqlvhlntujln&app_secret=VzVqelIrQW9tTkdqU05QL0tMUUVqZz09',
       success(res){
-        // console.log(res.data.data)
+        console.log(res.data.data)
         if(res.data.code===1){
           that.setData({
             perpetual_clr:res.data.data

@@ -20,7 +20,7 @@ Page({
   bindKeyInput: function (e) {
     var that=this;
     wx.request({
-      url: 'https://www.mxnzp.com/api/logistics/discern?logistics_no=' + e.detail.value,
+      url: 'https://www.mxnzp.com/api/logistics/discern?app_id=jyqldqlvhlntujln&app_secret=VzVqelIrQW9tTkdqU05QL0tMUUVqZz09&logistics_no=' + e.detail.value,
       success(res){
         // console.log(res)
         if(res.data.code===1){
@@ -39,7 +39,7 @@ Page({
     var that=this;
     that.setData({hidden:false})
     wx.request({
-      url: 'https://www.mxnzp.com/api/logistics/details/search',
+      url: 'https://www.mxnzp.com/api/logistics/details/search?app_id=jyqldqlvhlntujln&app_secret=VzVqelIrQW9tTkdqU05QL0tMUUVqZz09&',
       data:{
         logistics_no: e.currentTarget.dataset.number,
         logistics_id: e.currentTarget.dataset.comp,

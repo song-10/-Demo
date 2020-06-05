@@ -21,10 +21,6 @@
         <text class="history-content">{{item.title}}</text>
       </view>
     </template>
-    <view class='change' bindtap='changeHistoy' data-day="{{day}}" data-month="{{month}}" data-page="{{page_history}}" data-total="{{total}}">
-          <text space="ensp">换一批 </text>
-          <image src="../../image/refresh.png" mode="widthFix"></image>
-    </view>
     <view class="history">
       <block wx:for="{{history}}" wx:key="{{index}}">
         <template is="history" data="{{item}}"/>

@@ -19,56 +19,44 @@ Page({
     page_joke:1,
     // 历史上的今天
     history:[],
-    month:'',
-    day:'',
     page_history:1,
     total:0,
 
   },
   // 历史上的今天
-    getHistory(month, day, page_history,total){
+    getHistory(){
       var that=this;
       that.setData({ hidden: false })
-      if((total/5)>=page_history ||total===0){
       wx.request({
-        url:'http://api.avatardata.cn/HistoryToday/LookUp?key=d87aafabbd874d6cb7ebbb4a367bd5d6&yue='+month+'&ri='+day+'&type=1&page='+page_history+'&rows=5',
+        url:'https://www.mxnzp.com/api/history/today?app_id=jyqldqlvhlntujln&app_secret=VzVqelIrQW9tTkdqU05QL0tMUUVqZz09&type=0',
         success(res){
           // console.log(res)
-          if (res.data.error_code===0){
+          if (res.data.code === 1){
             that.setData({
-              history:res.data.result,
-              total:res.data.total
-              
+              history:res.data.data,
+             
             })
           }
           that.setData({hidden:true})
         }
       })
-      }else{
-        wx.showToast({
-          title: "没有更多内容了",
-          icon:"success",
-          mask: true,
-          duration:1000
-        })
         that.setData({hidden:true})
-      }
     },
     // 历史上的今天内容刷新
-    changeHistoy(e){
-      console.log(e)
-      var page=e.currentTarget.dataset.page+1;
-      this.setData({
-        page_history:page
-      })
-      this.getHistory(e.currentTarget.dataset.month, e.currentTarget.dataset.day, page, e.currentTarget.dataset.total)
-    },
+    // changeHistoy(e){
+    //   console.log(e)
+    //   var page=e.currentTarget.dataset.page+1;
+    //   this.setData({
+    //     page_history:page
+    //   })
+    //   this.getHistory(e.currentTarget.dataset.month, e.currentTarget.dataset.day, page, e.currentTarget.dataset.total)
+    // },
     // 获取视频内容
     getVideo(page){
       var that=this;
       that.setData({ hidden: false })
       wx.request({
-        url: 'https://www.mxnzp.com/api/news/list?typeId=522&page='+page,
+        url: 'https://www.mxnzp.com/api/news/list?app_id=jyqldqlvhlntujln&app_secret=VzVqelIrQW9tTkdqU05QL0tMUUVqZz09&typeId=526&page='+page,
         success(res){
           // console.log(res)
           if (res.data.code === 1) {
@@ -85,7 +73,7 @@ Page({
       var that=this;
       that.setData({hidden:false})
       wx.request({
-        url: 'https://www.mxnzp.com/api/jokes/list?page='+page,
+        url: 'https://www.mxnzp.com/api/jokes/list?app_id=jyqldqlvhlntujln&app_secret=VzVqelIrQW9tTkdqU05QL0tMUUVqZz09&page='+page,
         success(res){
           if(res.data.code===1){
             that.setData({
@@ -109,15 +97,13 @@ Page({
       var page_video = e.target.dataset.page_video;
       var page_joke = e.target.dataset.page_joke;
       var page_history = e.target.dataset.page_history;
-      var month = e.target.dataset.month;
-      var day = e.target.dataset.day;
       var total=e.target.dataset.total;
       var index = e.target.dataset.index;
       this.setData({
         currentIndexNav:index
       })
       if(index===0){
-        that.getHistory(month,day,page_history,total)
+        that.getHistory()
       }else if(index===1){
         that.getVideo(page_video)
       }else if(index===2){
@@ -128,18 +114,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    var now = new Date();
-    var month = now.getMonth() + 1;
-    var day = now.getDate();
     this.setData({
-      month:month,
-      day:day,
       page_history: 1,
-      page_joke:1,
-      page_video:1,
-      page_oher:1
+      page_joke: 1,
+      page_video: 1,
+      page_oher: 1
     })
-    this.getHistory(month, day, 1, 0)
+    this.getHistory()
   },
 
   /**

@@ -24,7 +24,7 @@ Page({
     var that=this;
     that.setData({h1:false,hidden:true})
     wx.request({
-      url: 'https://www.mxnzp.com/api/rubbish/type?name='+name,
+      url: 'https://www.mxnzp.com/api/rubbish/type?app_id=jyqldqlvhlntujln&app_secret=VzVqelIrQW9tTkdqU05QL0tMUUVqZz09&name='+name,
       success(res){
         // console.log(res)
         if(res.data.code===1){

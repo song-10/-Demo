@@ -22,7 +22,7 @@ Page({
     var that=this;
     that.setData({hidden:false})
     wx.request({
-      url: 'https://www.mxnzp.com/api/news/list?typeId=526&page=1',
+      url: 'https://www.mxnzp.com/api/news/list?app_id=jyqldqlvhlntujln&app_secret=VzVqelIrQW9tTkdqU05QL0tMUUVqZz09&typeId=509&page=1',
       success(res){
         if(res.data.code===1){
           that.setData({
@@ -43,7 +43,7 @@ Page({
       page:page
     })
     wx.request({
-      url: 'https://www.mxnzp.com/api/news/list?typeId=526&page='+page,
+      url: 'https://www.mxnzp.com/api/news/list?app_id=jyqldqlvhlntujln&app_secret=VzVqelIrQW9tTkdqU05QL0tMUUVqZz09&typeId=522&page='+page,
       success(res){
         if (res.data.code === 1) {
           that.setData({
